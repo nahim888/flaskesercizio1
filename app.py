@@ -5,14 +5,14 @@ from datetime import datetime
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('indexes.html')
+    return render_template('index.html')
 
 @app.route('/meteo', methods=['GET'])
 def meteo():
     n = rd.randint(0, 8)
     if n <= 2:
       previsione = 'pioggia'
-      tempo = 'rain_s_cloudy'
+      tempo = 'rain'
     else:
       if n >= 3 & n < 5:
         previsione = 'nuvoloso'
@@ -20,7 +20,7 @@ def meteo():
       if n > 5:
         previsione = 'sole'
         tempo = 'sunny'
-    return render_template('indexesmeteo.html', pr = previsione, tempo = tempo)
+    return render_template('indexmeteo.html', pr = previsione, tempo = tempo)
 
 @app.route('/frasicelebri', methods=['GET'])
 def frasi():
